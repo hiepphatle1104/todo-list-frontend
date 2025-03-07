@@ -12,7 +12,7 @@ def generate_fake_todo():
         "title": fake.sentence(nb_words=4),
         "description": fake.paragraph(),
         "deadline": fake.future_datetime(end_date="+30d").isoformat(),
-        "attachFile": fake.file_path(extension="pdf") if random.choice([True, False]) else None,
+        "attachFile": [fake.file_path(extension="pdf") for _ in range(random.randint(0, 3))],
         "username": fake.user_name(),
         "userId": str(uuid.uuid4()),
         "priority": random.choice(["high", "low", "medium"]),

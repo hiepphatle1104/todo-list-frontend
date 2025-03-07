@@ -3,14 +3,6 @@ import { ListFilter, Plus } from "lucide-react";
 import { BoardTodo, Navbar, Searchbar, Footer, Loading } from "@/components";
 
 const App = () => {
-  // todo: add filter and search functionality
-  // todo: add new todo item feature
-  // todo: add edit and delete functionality
-  // todo: add drag and drop functionality
-  // ?: add dark mode
-  // ?: add light mode
-  // ?: add theme toggle
-
   // *: add authentication
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
