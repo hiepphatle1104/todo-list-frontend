@@ -1,64 +1,19 @@
-import { useEffect, useState } from "react";
-import { ListFilter, Plus } from "lucide-react";
-import { BoardTodo, Navbar, Searchbar, Footer, Loading } from "@/components";
+import { Routes, Route } from "react-router";
+import Todo from "@/pages/layout/Todo";
+import Main from "@/pages/layout/Main";
+import Home from "@/pages/Home";
+import Board from "@/pages/Board";
 
 const App = () => {
-  // *: add authentication
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-
-  // *: Loading state
-  const [isLoading, setIsLoading] = useState(true);
-
-  // *: get todos list from server
-  const [todos, setTodos] = useState([]);
-  useEffect(() => {
-    const fetchTodos = async () => {
-      try {
-        const res = await fetch("src/db/todos.json");
-        const data = await res.json();
-
-        setTodos(data);
-      } catch (error) {
-        console.log("Error while fetching data from server", error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchTodos();
-  }, []);
-
-  if (isLoading) return <Loading />;
-
   return (
-    <div className="min-h-screen flex flex-col gap-5">
-      <Navbar isAuthenticated={isAuthenticated} />
-
-      <main className="content">
-        <div className="content-header">
-          <Searchbar />
-
-          <div className="content-actions">
-            <button className="btn btn-accent">
-              <Plus size={20} />
-              New Item
-            </button>
-
-            <button className="btn">
-              <ListFilter size={20} />
-              Filter
-            </button>
-          </div>
-        </div>
-        <div className="content-body">
-          {["todo", "in-progress", "done", "on-hold"].map((type) => (
-            <BoardTodo key={type} type={type} todos={todos} />
-          ))}
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<Main />}>
+        <Route index element={<Home />} />
+        <Route element={<Todo />}>
+          <Route path="board" element={<Board />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 };
 

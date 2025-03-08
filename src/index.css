@@ -1,42 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.todo {
-  @apply bg-base-200 rounded-sm p-4 space-y-4 border-1 border-base-300 h-fit;
-
-  .todo-header {
-    @apply flex justify-between items-center;
-
-    .todo-title {
-      @apply text-base font-medium;
-    }
-
-    .todo-actions {
-      @apply flex gap-2;
-
-      & button {
-        @apply btn btn-soft rounded-full btn-xs;
-      }
-    }
-  }
-
-  .todo-body {
-    @apply space-y-5;
-  }
+.board-layout {
+  @apply flex-1 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4;
 }
 
-.content {
-  @apply flex-1 container mx-auto px-5 space-y-5;
+.board-item {
+  @apply bg-base-100 border-1 border-base-300 shadow-sm rounded-sm p-4 hover:bg-base-200 h-40 flex flex-col justify-between;
+}
+button {
+  @apply max-lg:btn-sm;
+}
 
-  .content-header {
-    @apply flex justify-between items-center;
-
-    .content-actions {
-      @apply flex gap-2;
-    }
-  }
-
-  .content-body {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-5;
-  }
+html {
+  scrollbar-gutter: auto !important;
 }
