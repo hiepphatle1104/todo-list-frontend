@@ -9,12 +9,14 @@ export const Modal = ({ children, options }) => {
         {children}
       </div>
       <dialog id={`modal-${id}`} className="modal">
-        <div className="modal-box">
-          {content}
-          <div className="modal-action">
+        <div className="modal-box space-x-5">
+          <div className="space-x-5">
             <form method="dialog">
-              <button className="btn">Close</button>
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+              </button>
             </form>
+            {content}
           </div>
         </div>
         <form method="dialog" className="modal-backdrop">

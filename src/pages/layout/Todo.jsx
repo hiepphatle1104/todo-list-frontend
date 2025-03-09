@@ -8,7 +8,7 @@ import {
 import { Ellipsis, ListFilter, Plus, UserPlus } from "lucide-react";
 import { useState } from "react";
 import { dateOptions, locale } from "@/utils/config";
-
+import Dropdown from "@/components/Dropdown";
 const Todo = () => {
   // ?: Is searchbar needed?
   // todo: add dropdown menu for header buttons
@@ -32,11 +32,14 @@ const Todo = () => {
           </div>
 
           {/* Mobile dropdown */}
-          <details className="dropdown dropdown-end lg:hidden z-10">
-            <summary className="btn btn-ghost m-1">
-              <Ellipsis />
-            </summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <div className="lg:hidden">
+            <Dropdown
+              btn={
+                <button className="btn btn-ghost m-1">
+                  <Ellipsis />
+                </button>
+              }
+            >
               <li>
                 <a>
                   <UserPlus size={20} /> Add Assignee
@@ -54,8 +57,8 @@ const Todo = () => {
                   Filter
                 </a>
               </li>
-            </ul>
-          </details>
+            </Dropdown>
+          </div>
         </div>
 
         {/* Body */}

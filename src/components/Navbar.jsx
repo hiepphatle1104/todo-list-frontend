@@ -1,5 +1,5 @@
 import Sidebar from "@/components/Sidebar";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import {
   SidebarButton,
   LetsUseButton,
@@ -7,14 +7,16 @@ import {
   RegisterButton,
 } from "@/components/Buttons";
 import { useState } from "react";
+import Profile from "./Profile";
 
 const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const params = useParams();
 
   return (
     <Sidebar>
       <div className="navbar bg-base-100 shadow-sm">
-        <div className="navbar-start">
+        <div className="navbar-start pl-5">
           <Link to="/" className="text-xl font-semibold">
             TODOAPP
           </Link>
@@ -22,7 +24,7 @@ const Navbar = () => {
         <div className="navbar-end space-x-2">
           {isAuthenticated ? (
             <>
-              <LetsUseButton />
+              {params["*"] === "board" ? <Profile /> : <LetsUseButton />}
               <SidebarButton />
             </>
           ) : (

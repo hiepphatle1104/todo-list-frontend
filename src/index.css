@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+}
 
 .board-layout {
   @apply flex-1 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4;

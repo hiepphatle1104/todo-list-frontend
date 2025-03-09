@@ -14,7 +14,7 @@ export const locale = "en-US";
 export const priorityColor = {
   low: "success",
   medium: "warning",
-  high: "error",
+  high: "accent",
 };
 
 export const statusConfig = {

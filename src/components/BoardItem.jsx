@@ -1,12 +1,6 @@
 import { ClockAlert, Paperclip } from "lucide-react";
 import { Modal } from "@/components/Modal";
-import {
-  priorityColor,
-  itemDateOptions,
-  locale,
-  statusConfig,
-  dateOptions,
-} from "@/utils/config";
+import { itemDateOptions, locale, dateOptions } from "@/utils/config";
 
 const BoardItem = ({ todo }) => {
   const formattedDeadline = new Date(todo.deadline).toLocaleDateString(
@@ -26,13 +20,15 @@ const BoardItem = ({ todo }) => {
     <Modal options={modalOptions}>
       <section className="board-item">
         {/* Header */}
-        <div className="flex items-center gap-2">
-          <div
-            className={`status status-${priorityColor[todo.priority]}`}
-          ></div>
-          <h2 className="text-base font-medium line-clamp-1">{todo.title}</h2>
-        </div>
+        <div className="flex justify-between items-center gap-5">
+          <h2 className="text-base font-medium line-clamp-1 flex-1">
+            {todo.title}
+          </h2>
 
+          <div className="badge badge-soft badge-sm flex-none">
+            {todo.priority[0].toUpperCase() + todo.priority.slice(1)}
+          </div>
+        </div>
         {/* Description */}
         <p className="text-sm text-base-content/70 line-clamp-3">
           {todo.description}
@@ -84,24 +80,21 @@ const BoardItemContent = ({ details }) => {
   return (
     <>
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-5">
         {/* Title */}
-        <div className="flex items-center gap-2">
-          <div
-            className={`status status-lg status-${
-              priorityColor[details.priority]
-            }`}
-          ></div>
-          <h2 className="text-lg font-medium line-clamp-1">{details.title}</h2>
-        </div>
+        <h2 className="text-base font-medium line-clamp-1 flex-1">
+          {details.title}
+        </h2>
 
         {/* tag */}
-        <div
-          className={`badge badge-${
-            statusConfig[details.status].color
-          } badge-soft`}
-        >
-          {statusConfig[details.status].title}
+        <div className="flex items-center gap-2">
+          <div className="badge badge-sm badge-accent ">
+            {details.status[0].toUpperCase() + details.status.slice(1)}
+          </div>
+
+          <div className="badge badge-soft badge-sm">
+            {details.priority[0].toUpperCase() + details.priority.slice(1)}
+          </div>
         </div>
       </div>
 
