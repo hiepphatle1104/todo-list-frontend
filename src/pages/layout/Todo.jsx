@@ -5,8 +5,6 @@ import { useState } from "react";
 import { dateOptions, locale } from "@/utils/config";
 
 const Todo = () => {
-  // ?: Is searchbar needed?
-  // todo: add dropdown menu for header buttons
   const [currentDate, setCurrentDate] = useState(new Date());
 
   return (

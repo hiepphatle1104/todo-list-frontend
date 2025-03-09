@@ -28,9 +28,10 @@ const BoardColumn = ({ status, todos }) => {
       </h1>
 
       <div className="space-y-3">
-        {sortData(todos)[status].map((todo) => (
-          <BoardItem key={todo.todoId} todo={todo} />
-        ))}
+        {sortData(todos)[status] &&
+          sortData(todos)[status].map((todo) => (
+            <BoardItem key={todo.todoId} todo={todo} />
+          ))}
       </div>
     </section>
   );
