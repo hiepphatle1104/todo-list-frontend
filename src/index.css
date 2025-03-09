@@ -17,3 +17,7 @@ button {
 html {
   scrollbar-gutter: auto !important;
 }
+
+body {
+  @apply overflow-hidden;
+}

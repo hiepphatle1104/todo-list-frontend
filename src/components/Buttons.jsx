@@ -1,29 +1,6 @@
-import { AlignJustify, ListFilter, Plus, UserPlus } from "lucide-react";
+import { AlignJustify, Plus } from "lucide-react";
 import { Link } from "react-router";
 import { Modal } from "@/components/Modal";
-import Dropdown from "@/components/Dropdown";
-
-const AssigneeContent = () => {
-  return (
-    <>
-      <h1 className="font-medium">Add Assignee</h1>
-
-      <div className="divider my-1"></div>
-      <div className="space-y-3">
-        <fieldset className="fieldset">
-          <legend className="fieldset-legend">Assignee Name</legend>
-          <input
-            type="text"
-            className="input w-full"
-            placeholder="Assignee name"
-          />
-        </fieldset>
-
-        <button className="btn w-full">Add</button>
-      </div>
-    </>
-  );
-};
 
 const NewItemContent = () => {
   return (
@@ -79,25 +56,11 @@ const NewItemContent = () => {
 };
 
 const modalOptions = {
-  assignee: {
-    id: "add-assignee",
-    content: <AssigneeContent />,
-    childStyle: "btn btn-info btn-soft",
-  },
   newItem: {
     id: "new-item",
     content: <NewItemContent />,
-    childStyle: "btn btn-accent",
+    childStyle: "btn btn-accent max-md:btn-xs max-lg:btn-sm",
   },
-};
-
-const AddAssigneeButton = () => {
-  return (
-    <Modal options={modalOptions["assignee"]}>
-      <UserPlus size={20} />
-      Add Assignee
-    </Modal>
-  );
 };
 
 const NewItemButton = () => {
@@ -106,25 +69,6 @@ const NewItemButton = () => {
       <Plus size={20} />
       New Item
     </Modal>
-  );
-};
-
-const FilterButton = () => {
-  const btn = (
-    <button className="btn">
-      <ListFilter size={20} />
-      Filter
-    </button>
-  );
-  return (
-    <Dropdown btn={btn}>
-      <li>
-        <a>High</a>
-      </li>
-      <li>
-        <a>Medium</a>
-      </li>
-    </Dropdown>
   );
 };
 
@@ -153,11 +97,9 @@ const RegisterButton = () => {
 };
 
 export {
-  AddAssigneeButton,
   SidebarButton,
   LetsUseButton,
   LoginButton,
   RegisterButton,
   NewItemButton,
-  FilterButton,
 };

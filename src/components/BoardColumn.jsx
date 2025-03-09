@@ -5,6 +5,13 @@ const sortData = (data) => {
   // *: group todos by status
   const groupedData = data.reduce((acc, curr) => {
     acc[curr.status] = [...(acc[curr.status] || []), curr];
+
+    // *: sort todos by time
+    if (acc[curr.status] && acc[curr.status].length > 0)
+      acc[curr.status].sort((a, b) => {
+        return new Date(a.deadline) - new Date(b.deadline);
+      });
+
     return acc;
   }, {});
 

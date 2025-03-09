@@ -16,24 +16,24 @@ const Sidebar = ({ children }) => {
             <h2 className="menu-title">Menu</h2>
             <ul>
               <li>
-                <a>Profile</a>
+                <a href="/profile">Profile</a>
               </li>
-              <li>
+              {/* <li>
                 <a>Settings</a>
-              </li>
+              </li> */}
             </ul>
 
             <h2 className="menu-title">Views</h2>
             <ul>
               <li>
-                <a>Board</a>
+                <a href="/board">Board</a>
               </li>
-              <li>
+              {/* <li>
                 <a>List</a>
               </li>
               <li>
                 <a>Status</a>
-              </li>
+              </li> */}
             </ul>
           </li>
           <li className="mt-auto">
